@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const name = user?.profile?.name ?? "匿名";
+
+//     user?.profile?.name：使用可选链操作符 ?.。
+
+// 如果 user 或 user.profile 是 null 或 undefined，表达式会直接返回 undefined，而不会抛出错误（如 Cannot read property 'name' of undefined）。
+
+// 只有当 user、user.profile 都存在时，才会继续读取 name 属性。
+
+// ?? "匿名"：使用空值合并操作符 ??。
+
+// 如果 ?? 左侧的值是 null 或 undefined，则取右侧的默认值 "匿名"。
+
+// 注意：如果左侧的值是空字符串 ""、数字 0、布尔 false，它们不会触发使用默认值（这区别于 || 运算符）。
+  </script>
+</body>
+</html>

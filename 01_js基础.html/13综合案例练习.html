@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 需求，只做简易ATM取款机
+    // 1.prompt弹出窗口提示用户操作，再保存用户输入的信息
+    // swicth判断用户输入的数据，alert提示用户子功能信息
+    // switch (post) {
+    //   case 1:
+    //     prompt('');
+    //     alert('');
+    //     break;
+    //   case 2: alert('存款');
+    //     break;
+    //   case 3: alert('余额为一个小目标');
+    //     break;
+    //   default: alert('感谢使用');
+    // }
+
+    //  swicth无法实现用户的循环操作,用循环包住swicth
+    let post = 0;   //储存用户选择操作的索引
+    let num = 0;   //  储存用户变动数据。
+    let sumnum = 0; //  储存用户余额数据。
+    let boolean = true;
+    while (boolean) {
+      post = +prompt('请选择您的操作：\n 1.取款 \n 2.存款 \n 3.查看余额 \n 4.退出 \n');
+      switch (post) {
+        case 1:
+          num = +prompt('请输入需要取的金额：');
+          if (sumnum < num) {
+            alert('您的余额不足。');
+          } else {
+            sumnum -= num;
+            alert(`这是您的${num}元，请拿好。当前余额为${sumnum}元`);
+          }
+          break;
+        case 2:
+          num = +prompt('请输入需要存的金额：');
+          sumnum += num;
+          alert(`存款${num}元成功。当前余额为${sumnum}元`);
+          break;
+        case 3:
+          alert(`余额为${sumnum}元。`);
+          break;
+        case 4:
+          boolean = false;
+          alert('感谢使用');
+          break;
+        default:
+          alert('请正确输入。');
+          break;
+
+      }
+    }
+  </script>
+</body>
+
+</html>

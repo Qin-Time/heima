@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    //从这节开始，我将要将随堂练习写到同一个文件下。但是用函数方式隔离开来。
+    //因为之前用{}隔离，上下文无内容，单纯的{}包裹一段代码，虽然隔离了变量的作用域，但是程序还是会运行，影响成果的检查
+    //现在将隔离成块的代码作为代码块包裹到函数里，如果我不调用函数，这段代码将不会运行。
+
+    //我利用了函数提升，将函数调用放到声明之前，更方便我案例的调用。开发场景不建议用函数提升
+
+    // test1()//调用函数练习1
+    // test2()//调用函数练习2
+    // test3()//调用函数练习3.
+    // test4()//调用函数练习4.
+
+
+    //练习1
+    function test1() {
+      for (let i = 1; i <= 10; i++) {
+        document.write(i + '<br>');
+      }
+    }
+
+
+    //练习2 输出范围内偶数求和
+    function test2() {
+      let sum = 0;
+      for (let i = 2; i <= 100; i = i + 2) {
+        sum += i;
+      }
+      document.write(sum + '<br>')
+    }
+
+
+    //练习3 打印五行五列的星星
+    function test3() {
+      let row = +prompt('第一案例需要打印几行');
+      let col = +prompt('第一案例需要打印几列');
+      for (let i = 0; i < row; i++) {
+        for (let j = 0; j < col; j++) {
+          document.write('★');
+        }
+        document.write('<br>');
+      }
+    }
+
+    // 练习4 打印倒三角
+    function test4() {
+      let row = +prompt('第二案例需要打印几行');
+      for (let i = 0; i < row; i++) {
+        for (let j = 0; j <= i; j++) {
+          document.write('★');
+        }
+        document.write('<br>');
+      }
+    }
+  </script>
+</body>
+
+</html>

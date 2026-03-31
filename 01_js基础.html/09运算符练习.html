@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //用户输入一个数，判断这个数能被4整除，但是不能被100整除，满足条件弹出true，否则弹窗false
+    // 1声明变量接收用户输入的数字
+    let a = prompt('请输入一个数字');
+    // 2运算判断
+    if(a % 4 == 0 && a % 100 != 0){
+      alert('true');
+    }else alert('false');
+    // 3弹出结果 
+
+    // 试试三目运算符
+    // a % 4 == 0 && a % 100 != 0 ? alert('true') : alert('false');   
+
+    let i = 1;
+    i = i++;  //结果i没有变，右边的i虽然变了，但是表达式返回的是没有变的i,又被重新赋值给i。 i++是一元运算符，运算优先级比赋值运算符更高，所以右边计算已经结束了，i的值是2，但是右边返回的值却是1，接着被赋值给左边。
+    i = i++;
+    //警惕， 自增表达式的返回值  i++是后置自增，返回值是i
+    console.log(i);
+    
+
+  </script>
+</body>
+</html>

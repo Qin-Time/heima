@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+
+    let a = +prompt('参数1');
+    let b = +prompt('参数2');
+    let take = prompt('请输入运算符+-*/ ');
+    switch (take) {
+      case "+":
+        alert(a + b);
+        break;
+      case '-':
+        alert(a - b);
+        break;
+      case '*':
+        alert(a * b);
+        break;
+      case '/':
+        alert(a / b);
+        break;
+      default:
+        alert('no');
+        break;
+    }
+  </script>
+</body>
+
+</html>

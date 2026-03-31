@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 练习，用户输入成绩，如果大于700，提示录取
+    // 1声明变量接收用户数据，
+    let point = prompt('请输入分数：');
+
+    // 判断并输出
+    if (point > 700) { alert('恭喜') };
+
+    //练习，用户输入用户名：张三 密码：123456, 提示登录成功，否则提示失败
+    let useName = prompt('请输入用户名：');
+    let useKey = prompt('请输入密码：');
+    if (useName === '张三' && useKey === '123456') {
+      alert('登录成功');
+    } else { alert('登录失败') }
+
+    // 练习，用户输入年份，判断闰年平年
+    let year = +prompt('请输入要查询的年份：');
+    if (year % 4 === 0 && year % 100 !== 0 || year % 400 === 0) {
+      alert(`${year} 年是闰年`);
+    } else {
+      alert(`${year} 年是平年`);
+    }
+
+    //练习 if的多分支 根据输入的成绩，反馈评价
+    let mypo = +prompt('请输入成绩：');
+    if (mypo >= 90) {
+      alert('优秀');
+    }
+    else if (mypo >= 70 && mypo < 90) {
+      alert('良好');
+    }
+    else if (mypo >= 60 && mypo < 70) { 
+      alert('及格');
+    }
+    else {
+      alert('不及格');
+    }
+
+    //三元运算符练习 数字补0 用户输入一个数，如果数字小于10，前面补0
+    let numt = +prompt('请输入一个数：');
+    numt = numt < 10 ? '0' + numt : numt 
+    alert(numt);
+  </script>
+</body>
+
+</html>

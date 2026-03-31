@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 需求：页面输出1-30
+    let i = 1;
+    while (i <= 30) {
+      document.write(`输出第${i}次</br>`);
+      i++;
+    }
+
+    document.write('</br>-----------------------------------</br>');
+    //需求，计算1加到100的总和输出
+    i = 1;
+    let sum = 0;
+    console.log(sum);
+    while (i <= 100) {
+      sum += i;
+      i++;
+    }
+    document.write(`1-100的总和为${sum}`);
+    console.log(sum);
+
+    document.write('</br>-----------------------------------</br>');
+    // 需求：计算1-100之间的所有偶数和
+    i = 1;
+    sum = 0;
+    while (i <= 100) {
+      i % 2 === 0 ? sum += i : sum;
+      i++;
+    }
+    document.write(`1-100内的偶数求和为${sum}`);
+
+
+    //AI很强，这段求偶和的代码发给他，他能直接优化。直接使用 i+2 设置步长为2，这样每次就跳到偶数上，减少循环遍历次数。对于逻辑固定简易的，这种优化节省了很多性能。
+
+
+    // 练习 break  需求，页面弹窗，输入指定字符停止弹窗
+    //我第一遍写的简化版不需要break感觉更合适
+    // let text = null;
+    // while (text !== '退出' ) {
+    //   text = prompt('请输入文本。输入退出结束')
+    // }
+    //
+
+    while (true) {
+      let text = prompt('请输入文本。输入退出结束');
+      if (text !== null && text.trim() === '退出') {
+        break;
+      }
+    }
+
+    /*     当用户点击弹窗的 “取消” 按钮或按下 ESC 键时：
+    prompt 会返回 null。
+    变量 text 变成了 null。
+    代码执行 if (text.trim() ...) 时，试图对 null 使用 .trim() 方法。
+    结果：程序抛出错误 Uncaught TypeError: Cannot read properties of null (reading 'trim') 并停止运行。
+     */
+  </script>
+</body>
+
+</html>
