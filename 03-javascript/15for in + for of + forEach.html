@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // 练习1 找出数组内的max        
+        // test1(); //执行test1函数
+        function test1() {
+            let arr = [1, 5, 6, 3, 2, 7, 4, 15, 4];
+            let max = arr[0];
+            for (const i of arr) {       //循环遍历数组中的每一个元素，当前元素赋值给变量 i
+                max < i ? max = i : max;//需要优化的点，三元运算符其实是有返回值的一个表达式。我的代码在运算子里面又进行赋值，又不操作，显得很瓜
+                //max = max < i ? i : max;   //三元运算符如果max小返回i，如果max大返回max，将返回的值赋给max
+            }
+            console.log(max);
+        }
+        // 个人练习使用 for of遍历法，记得for of是用于遍历可迭代对象的值，无法访问键！直接访问键会报错
+        //因为for of是只能遍历可迭代对象的，但是对象object不是此类。如果想用for of遍历对象，就需要调用object.values().其实就是遍历object.values()这个数组
+        // for (const item of iterator){} //语法释义：for (const 变量 of 可迭代对象){循环体}
+        //for of 的变量item即是遍历对象的值，不是索引，每次循环拿到对应的值赋给const变量
+        //为什么是const，因为这个变量只存在于这次循环中，也就是一次性变量，如果不使用这个变量，循环结束后这个变量就会销毁，下一轮循环中重新定义一个新的量。所以可以用常量的方式定义。
+        //即使使用let 该变量在循环结束后依然销毁，除非需要在循环体内操作变量的赋值。否则用const还是最优。
+
+        //数组遍历不要用for in 因为是无序遍历。
+
+        //for in 和for of 都可以使用break和continue，因为他们都是for循环。而forEach是对象的方法，不是循环，不能break和continue
+
+        //其次再延伸到arr.forEach方法
+
+        /*  array.forEach(function (currentValue, index, array) {
+             // 执行代码
+         }, thisArg); */
+        //代码理解为array.forEach (       function(){}     ,                     thisArg   );
+        //            接收两个参数     第一个参数-回调函数-这是一个匿名函数         第二个参数
+        //                             callbackFn(必填)                        thisArg (可选)
+
+        //在回调函数function(currentValue, index, array) { ... }里，接收三个参数currentValue：当前元素（最常用）。index：当前索引（可选）。array：原数组（可选）。
+
+        let arr = [];
+        let max = arr.length == 0 ? '数组为空' : arr[0];//初始化max为第一个元素，并预判空数组的情况，做出预防
+        arr.forEach(function (i) {
+            max = max < i ? i : max;
+        });
+        console.log(max);
+        arr.unshift()
+
+
+    </script>
+</body>
+
+</html>
