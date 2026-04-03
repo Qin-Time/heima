@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //练习1
+        // 需求1，用户输入5个有效年龄0-100，放入数组中。必须是有效年龄，如果无效，则不放进数组中。
+        // 需求2，打印所有成年人的年龄，打印所有人的总年龄，打印所有人的平均年龄，打印最大和最小。
+        test1();  //运行练习1
+        //我想改成用户自由选择输入次数，输入框点确定就push进数组，点取消就结束弹窗。然后弹出选择窗提示用户后续操作。
+        function test1() {
+            let ages = [];
+            //没确定数组长度，所以用while循环做哨卫无限循环
+            while (true) {
+                //接收数据，因为还没录入，此时数组还没有push,提示的待录入用户1为数组长度+1，
+                let age = prompt(`请输入用户${ages.length + 1}年龄，点取消结束录入`)//为什么不直接+promt，因为如果这里+了，会影响结束的判断，用户ESC会返回null，+null是number 0 
+                //判断用户是否结束录入
+                if (age === null) {
+                    break;
+                }
+                //判断数据类型并录入数组。
+                if (typeof +age === "number" && !Number.isNaN(+age) && age >= 0 && age <= 100) {
+                    ages.push(+age)
+                }
+                else alert('数据无效');
+            }
+            //输出数组检查
+            console.log(ages);
+            //往下需求2就是处理数组了，很简单了，因为是练习，往下我就不写防御性代码了
+            let sum = 0;                    //依然先从循环开始练，暂时不用math方法
+            for (const i of ages) {         //我直接用更高级的for of遍历数组求和，注意，for of 写法中，变量是数值的值。
+                sum += i;
+            }
+            let max = Math.max(...ages);    //记得 ...[] 展开数组
+            let min = Math.min(...ages);    //练习的目的是练循环，还没到更高级写法的阶段。但这里我不练循环了，其他位置练过循环了，这里我改练Math方法
+            console.log(max, min);
+
+            let tips = prompt(`请选择操作
+            1：查看所有成年人的年龄
+            2：查看总年龄
+            3：查看平均年龄
+            4：查看最大年龄和最小年龄`)
+            switch (tips) {
+                //因为输出数据包括了索引，不能使用for of
+                case '1':
+                    for (let i = 0; i < ages.length; i++) {
+                        if (ages[i] >= 18) {
+                            document.write(`用户${i + 1}年龄：${ages[i]}岁<br>`);
+                            console.log(`用户${i + 1}年龄：${ages[i]}岁<br>`);
+                        }
+                    }
+                    break;
+                case '2':
+                    document.write(`总年龄为${sum}岁。`);
+                    break;
+                case '3':
+                    document.write(`平均年龄为${sum / ages.length}岁。`);
+                    break;
+                case '4':
+                    document.write(`最大值为${max}岁。最小值为${min}岁`);
+                    break;
+                default:
+                    break;
+            }
+            //还可以在switch外层套一个需求1的循环哨卫，实现用户循环操作。但是没必要多练习了。
+        }
+
+        //练习2
+        //需求
+    </script>
+</body>
+
+</html>
