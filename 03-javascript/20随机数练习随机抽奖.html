@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //把数组中的随机某个数据显示到页面中
+    let arr = ['赵云', '黄忠', '关羽', '张飞', '马超', '刘备', '曹操'];
+    function getRandomIndex(length) {
+      // 生成 0 到 length (不包含 length，即length-1,不会越界) 的随机整数
+      return Math.floor(Math.random() * length);
+    }
+    // document.write(arr[getRandomIndex(arr.length)]); //普通单次打印
+
+    while (true) {
+      let index = getRandomIndex(arr.length); //每次循环抽取一个随机索引，以实时数组长度为范围
+      document.write(arr[index]);//打印随机到的数据
+      arr.splice(index, 1); //删除已抽取过的数据，利用刚刚获得的随机数作为index
+      console.log(arr);//检查数组 */
+      if (arr.length === 0) { break }
+    }
+
+
+  </script>
+</body>
+
+</html>

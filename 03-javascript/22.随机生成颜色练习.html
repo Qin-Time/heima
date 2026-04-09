@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //需求 该函数接收一个布尔参数，参数为true或者无参，返回一个随机的十六进制颜色，参数为false返回一个随机的rgb颜色
+    //获取随机数函数
+    function getRandom(N, M) {
+      return Math.floor(Math.random() * (M - N + 1)) + N
+    }
+    //获取数组随机下标函数
+    function getRandomIndex(length) {
+      // 生成 0 到 length (不包含 length，即length-1,不会越界) 的随机整数
+      return Math.floor(Math.random() * length);
+    }
+
+    //获取随机颜色
+    function getRandomColor(flag) {
+      let color = null;
+      if (flag === false) {
+        let r = getRandom(0, 255);
+        let g = getRandom(0, 255);
+        let b = getRandom(0, 255);
+        color = `rgb(${r},${g},${b})`;
+
+      }
+      else {
+        let hexArr = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f']//声明一个用于抽取十六进制值的数组。
+        let randomArr = [];
+        for (let i = 1; i <= 6; i++) {
+          let index = getRandomIndex(hexArr.length)
+          randomArr.push(hexArr[index]);
+        }
+        color = `#${randomArr.join('')}`
+      }
+      return color
+    }
+
+
+  </script>
+</body>
+
+</html>

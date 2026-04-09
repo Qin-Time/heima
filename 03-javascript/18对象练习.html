@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const goods = {
+      name: '小米10青春版',
+      num: '10001',
+      weight: '0.55',
+      address: '中国大陆'
+    }
+    //将商品名更改
+    goods.name = '小米10plus';
+    //新增一个属性color
+    goods.color = '粉色';
+    //依次打印所有属性
+    console.log(goods.name);
+    console.log(goods['name']);
+    console.log(goods.num);
+    console.log(goods['num']);
+    console.log(goods.weight);
+    console.log(goods['weight']);
+    console.log(goods.address);
+    console.log(goods['address']);
+    console.log(goods.color);
+    console.log(goods['color']);
+
+    //for in遍历试试呢
+    for (const i in goods) {
+      // console.log(i);          // for in 语法只能遍历对象的键，不能遍历值。
+      // console.log(goods.i);    // 对象.键名 如果键名是动态的，这种形式只会把动态键识别为字符，而去搜寻对象内是否存在 goods.i 这个键，结果是undefined
+      // console.log(goods[i]);   // 正确使用动态键名，应该使用[]， []里的动态名会被正确识别 
+      console.log(`键名${i} : 值 ${goods[i]} `);
+      // 注意加引号和不加的区别。不加引号表示变量，先解析变量的值，再将值作为键名。 加引号表示一个字符串，直接将字符串作为键名查找
+      // console.log(`键名${i} : 值 ${goods['i']} `);
+
+    }
+    // for (const i of goods) {    //for of 无法遍历对象
+    //   console.log(i);
+    // }
+
+    const star = {
+      uname: '刘德华',
+      sing: function (song) {
+        song = song ?? '恭喜发财';
+        console.log(`唱了一首${song}`);
+      },
+      dance: function () {
+        console.log('跳了一场‘黑蝙蝠中队’。');
+      }
+    }
+    star.sing('冰雨');
+    star.dance();
+
+    let students = [
+      { name: '小明', age: 18, gender: '男', hometown: '河南' },
+      { name: '小红', age: 19, gender: '女', hometown: '山东' },
+      { name: '小刚', age: 17, gender: '男', hometown: '广西' },
+      { name: '小丽', age: 16, gender: '女', hometown: '福建' },
+    ]
+    for (const values of students) {
+      console.log(values.name);
+      console.log(values.hometown);
+    }
+
+  </script>
+</body>
+
+</html>

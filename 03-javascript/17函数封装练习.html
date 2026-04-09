@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //需求，学生分数是个数组，计算每个学生的总分
+    let studenSco = [50, 60, 70, 90, 66, 7];
+    //声明一个函数 需要传递一个参数为学生分数，函数体内对学生分数的数组进行遍历累加。
+    function getSumSco(stuSco) {
+      let sum = 0;
+      for (const i of stuSco) {
+        sum += i;
+      }
+      // console.log(sum);
+      //记得return
+      return sum;
+
+    }
+    // getSumSco(studenSco); //传递studenSco调用getSumSco函数
+    console.log(getSumSco(studenSco));//传递studenSco调用getSumSco函数,获得返回值   控制台直接使用返回值
+
+    //练习1 求任意2个数中的最大值，并返回
+    //练习2 求任意数组中的最大值并返回这个最大值
+    // 练习3 求任意数组中的最小值并返回这个最小值
+    function getNumMax(num1 = 0, num2 = 0) {
+      if (num1 > num2) {
+        return num1;
+      }
+      return num2;
+      // return num1 > num2 ? num1 : num2  //三元写法
+    }
+    console.log(getNumMax(10, 15));
+
+    function getArrMax(arr = []) {
+      let max = arr[0];  //如果不传参呢，如果没写默认值，undefined[]会报错。这里给了默认参数arr会默认为[] 但arr[0]还是会undefined
+      for (let i = 0; i < arr.length; i++) {
+        if (max < arr[i]) {
+          max = arr[i]
+        }
+      }
+      return max;
+    }
+
+    console.log(getArrMax([10, 20, 30]));
+
+    // 练习4 封装余额函数
+    // 要求；1运行程序后，浏览器显示输入框prompt
+    // 2.第一个输入确认框提示输入银行卡余额
+    // 3，第二个输入框提示输入当月食堂消费金额
+    // 4.第三个输入框提示输入当月生活消费金额
+    // 5输入完毕后，页面中显示银行卡剩余金额
+    // 6提示。所有功能封装到函数内部，函数吧余额放回
+    function money() {
+
+      let balance = +prompt('请输入银行卡余额：');
+      let eatconsumption = +prompt('请输入食宿消费度：');
+      let liveconsumption = +prompt('请输入生活消费度：');
+      balance = balance - eatconsumption - liveconsumption;
+      return balance;
+    }
+
+    document.write(`当前银行卡余额为${money()}元`);
+
+    // 练习5 封装一个函数，可以求任意数组的和或平均数，要求，函数传递两个参数，参数一接收数组，参数二接受布尔值，true或者不传参是求和操作，false则是求平均值
+    function handleData(arr, boolean) {
+      let result = 0;
+      for (let i = 0; i < arr.length; i++) {
+        result += arr[i];
+      }
+      if (boolean === false) {
+        result = result / arr.length;
+      }
+      return result;
+    }
+    handleData([5, 7, 4], true);
+
+  </script>
+</body>
+
+</html>

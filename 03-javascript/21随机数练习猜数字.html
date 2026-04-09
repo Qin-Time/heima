@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //需求，随机生成1-10的数字，用户输入一个数字，
+    //如果大于该数字，就提示猜大了，继续猜
+    //如果小于该数字，提示小了，继续猜
+    //如果才对了，程序结束
+    //第一步，生成一个随机数，作为基点。
+    let rewardKey = Math.floor(Math.random() * (10 + 1));
+    console.log(rewardKey);//检查数据
+    //第二步，开始循环，接受用户数据
+    while (true) {
+      let useKey = +prompt('请输入您猜测的数字：');
+      //第三步，判断数据，给出不同反馈
+      if (useKey === rewardKey) {
+        alert('恭喜您摘得桂冠');
+        break;
+      }
+      else if (useKey < rewardKey) {
+        alert('您的数字比答案小')
+      }
+      else if (useKey > rewardKey) {
+        alert('您的数字比答案大')
+      }
+    }
+
+  </script>
+</body>
+
+</html>
