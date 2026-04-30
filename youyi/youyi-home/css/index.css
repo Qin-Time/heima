@@ -298,7 +298,7 @@ nav .navbottom .navitem p:first-of-type {
   object-fit: cover;
 }
 
-.tabs-content .data span {
+.tabs-content .log span {
   color: #C3C3C5;
   font-size: 3.2vw;
   margin-right: 4vw;
